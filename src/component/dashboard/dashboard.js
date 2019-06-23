@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-21 01:01:07
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-22 17:03:27
+* @Last Modified time: 2019-06-23 02:09:16
 */
 import React from 'react';
 import { NavBar } from 'antd-mobile';

@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-18 22:25:59
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-21 22:26:02
+* @Last Modified time: 2019-06-23 02:23:03
 */
 import React from 'react';
 import ReactDom from 'react-dom';
@@ -35,9 +35,9 @@ ReactDom.render(
       <div>
         <AuthRoute></AuthRoute>
         <Switch>
+          <Route path='/login' component={Login}></Route>
           <Route path='/employerinfo' component={EmployerInfo}></Route>
           <Route path='/employeeinfo' component={EmployeeInfo}></Route>
-          <Route path='/login' component={Login}></Route>
           <Route path='/register' component={Register}></Route>
           <Route path='/chat/:user' component={Chat}></Route>
           <Route component={DashBoard}></Route>
