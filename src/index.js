@@ -2,14 +2,14 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-18 22:25:59
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 02:23:03
+* @Last Modified time: 2019-06-23 02:39:04
 */
 import React from 'react';
 import ReactDom from 'react-dom';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import reducer from './reducer';
 import Login from './container/login/login';
@@ -31,11 +31,11 @@ const store = createStore(reducer, /* preloadedState, */ composeEnhancers(
 
 ReactDom.render(
   (<Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <AuthRoute></AuthRoute>
         <Switch>
-          <Route path='/login' component={Login}></Route>
+          <Route path='/' exact component={Login}></Route>
           <Route path='/employerinfo' component={EmployerInfo}></Route>
           <Route path='/employeeinfo' component={EmployeeInfo}></Route>
           <Route path='/register' component={Register}></Route>
@@ -44,7 +44,7 @@ ReactDom.render(
         </Switch>
         
       </div>
-    </BrowserRouter>
+    </HashRouter>
   </Provider>), 
   document.getElementById('root')
 );

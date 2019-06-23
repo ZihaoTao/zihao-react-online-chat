@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 20:51:21
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 01:47:29
+* @Last Modified time: 2019-06-23 02:29:48
 */
 import React from 'react';
 import axios from 'axios';
@@ -31,7 +31,7 @@ class AuthRoute extends React.Component {
             if(res.data.code === 0) {
               this.props.loadData(res.data.data);
             } else {
-              this.props.history.push('/login');
+              this.props.history.push('/');
             }
           }
         });
