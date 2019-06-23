@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-18 17:37:19
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-22 11:12:06
+* @Last Modified time: 2019-06-23 02:58:26
 */
 
 const express = require('express');
@@ -17,6 +17,8 @@ const Chat = models.getModel('chat');
 const app = express();
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
+
+const path = require('path');
 
 io.on('connection', (socket) => {
   socket.on('sendmsg', (data) => {
@@ -35,8 +37,13 @@ app.use('/user', userRouter);
 
 //connect to mongodb
 // use collction 'zihao'
-
-
+app.use((req, res, next) => {
+  if(req.url.startsWith('/user/') || req.url.startsWith('/static/')) {
+    return next();
+  }
+  return res.sendFile(path.resolve('build/index.html'));
+})
+app.use('/', express.static(path.resolve('build')));
 
 
 server.listen(9093, () => {
