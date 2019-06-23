@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-21 01:01:07
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 02:09:16
+* @Last Modified time: 2019-06-23 12:21:45
 */
 import React from 'react';
 import { NavBar } from 'antd-mobile';
@@ -68,7 +68,7 @@ class DashBoard extends React.Component {
     return (
       <div>
         <NavBar className='fixed-header' mode='dark'>
-          {navList.find(v=>v.path===pathname).title}
+          {navList.find(v=>v.path===pathname) ? navList.find(v=>v.path===pathname).title : null}
         </NavBar>
         <NavLinkBar data={navList}></NavLinkBar>
         <Switch>

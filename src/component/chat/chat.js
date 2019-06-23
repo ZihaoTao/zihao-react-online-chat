@@ -2,17 +2,14 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-21 22:01:29
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 11:40:55
+* @Last Modified time: 2019-06-23 11:50:19
 */
 import React from 'react';
 import {NavBar, List, InputItem, Icon, Grid } from 'antd-mobile';
 import { connect } from 'react-redux';
-import io from 'socket.io-client';
 import { getChatId } from '../../util'
 
 import { getMessageList, sendMsg, recvMsg, readMsg } from '../../redux/chat.redux';
-
-const socket = io('ws://47.254.23.123:9093');
 
 @connect(
   state => state,

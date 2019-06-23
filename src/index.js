@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-18 22:25:59
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 02:49:53
+* @Last Modified time: 2019-06-23 12:10:27
 */
 import React from 'react';
 import ReactDom from 'react-dom';
@@ -42,7 +42,6 @@ ReactDom.render(
           <Route path='/chat/:user' component={Chat}></Route>
           <Route component={DashBoard}></Route>
         </Switch>
-        
       </div>
     </BrowserRouter>
   </Provider>), 
