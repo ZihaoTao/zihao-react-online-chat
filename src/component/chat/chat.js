@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-21 22:01:29
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-22 21:45:22
+* @Last Modified time: 2019-06-23 11:40:55
 */
 import React from 'react';
 import {NavBar, List, InputItem, Icon, Grid } from 'antd-mobile';
@@ -12,7 +12,7 @@ import { getChatId } from '../../util'
 
 import { getMessageList, sendMsg, recvMsg, readMsg } from '../../redux/chat.redux';
 
-const socket = io('ws://localhost:9093');
+const socket = io('ws://47.254.23.123:9093');
 
 @connect(
   state => state,
