@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 20:08:05
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-20 18:23:43
+* @Last Modified time: 2019-06-24 11:23:26
 */
 import React from 'react';
 import logoImg from './logo.png';
@@ -14,7 +14,7 @@ class Logo extends React.Component {
   render() {
     return(
       <div className="logo-container">
-        <img src={logoImg} alt="logo"/>
+        <img className="logo-img" src={logoImg} alt="logo"/>
       </div>
     );
   }

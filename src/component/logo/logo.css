@@ -2,10 +2,14 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 20:18:13
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-19 20:22:30
+* @Last Modified time: 2019-06-24 11:24:01
 */
 .logo-container {
   margin-top: 50px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.logo-img {
+  width:50%;
 }

@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-18 17:37:19
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 02:58:26
+* @Last Modified time: 2019-06-24 11:33:30
 */
 
 const express = require('express');
@@ -25,7 +25,6 @@ io.on('connection', (socket) => {
     const {from, to, msg} = data;
     const chatid = [from, to].sort().join('_');
     Chat.create({chatid, from, to, content:msg}, (err, doc) => {
-      console.log(Object.assign({}, doc._doc));
       io.emit('recvmsg', Object.assign({}, doc._doc));
     });
   })
