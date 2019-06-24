@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-21 22:01:29
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 11:50:19
+* @Last Modified time: 2019-06-24 02:15:45
 */
 import React from 'react';
 import {NavBar, List, InputItem, Icon, Grid } from 'antd-mobile';
@@ -29,6 +29,9 @@ class Chat extends React.Component {
     if(!this.props.chat.chatmsg.length) {
       this.props.getMessageList();
       this.props.recvMsg();
+    }
+    if(this.listElement) {
+      this.listElement.scrollTop = this.listElement.scrollHeight;
     }
   }
 
@@ -64,6 +67,8 @@ class Chat extends React.Component {
     }
     const chatid = getChatId(userid, this.props.user._id);
     const chatmsgs = this.props.chat.chatmsg.filter(v => v.chatid === chatid);
+
+            
     return (
       <div id='chat-page'>
         <NavBar 
@@ -74,21 +79,25 @@ class Chat extends React.Component {
         >
           {users[userid].name}
         </NavBar>
-        {chatmsgs.map(v=>{
-          const avatar = require(`../img/${users[v.from].avatar}.png`);
-          return v.from === userid ?
-            <List key={v._id}>
-              <List.Item thumb={avatar}>
-                {v.content}
-              </List.Item>
-            </List>
-            :
-            <List key={v._id}>
-              <List.Item className='chat-me' extra={<img src={avatar} alt="pic"/>}>
-                {v.content}
-              </List.Item>
-            </List>
-        })}
+        <div className="char-msg-page" ref={(list) => this.listElement = list}>
+          {
+            chatmsgs.map(v=>{
+              const avatar = require(`../img/${users[v.from].avatar}.png`);
+              return v.from === userid ?
+                <List key={v._id}>
+                  <List.Item thumb={avatar}>
+                    {v.content}
+                  </List.Item>
+                </List>
+                :
+                <List key={v._id}>
+                  <List.Item className='chat-me' extra={<img src={avatar} alt="pic"/>}>
+                    {v.content}
+                  </List.Item>
+                </List>
+            })
+          }
+        </div>
         <div className="stick-footer">
           <List>
             <InputItem

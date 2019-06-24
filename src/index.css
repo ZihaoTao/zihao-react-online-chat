@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-20 13:50:51
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-22 14:56:52
+* @Last Modified time: 2019-06-24 01:42:40
 */
 .error-msg {
   color: #f50;
@@ -36,6 +36,21 @@
 
 #chat-page .am-grid-icon {
   display: none;
+}
+
+#chat-page .char-msg-page {
+  overflow: scroll;
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  left: 0px;
+  right: 0px;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+#chat-page .char-msg-page::-webkit-scrollbar { 
+  width: 0 !important 
 }
 
 #chat-page .am-grid-carousel-page{

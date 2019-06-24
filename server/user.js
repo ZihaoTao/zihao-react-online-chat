@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 20:55:55
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 01:47:30
+* @Last Modified time: 2019-06-24 02:16:34
 */
 const express = require('express');
 const utils = require('utility');
@@ -19,10 +19,10 @@ Router.get('/list', (req, res) => {
   }) 
 });
 
-// Router.get('/remove', (req, res) => {
-//   Chat.remove({}, (e,d)=> {});
-//   return res.json({code:0});  
-// });
+Router.get('/remove', (req, res) => {
+  Chat.remove({}, (e,d)=> {});
+  return res.json({code:0});  
+});
 
 Router.get('/chatlist', (req, res) => {
   Chat.find({}, (e,d)=> {return res.json({data: d}); });

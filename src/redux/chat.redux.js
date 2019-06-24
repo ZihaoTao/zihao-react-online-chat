@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-22 00:03:36
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-23 12:21:54
+* @Last Modified time: 2019-06-24 01:07:41
 */
 import axios from 'axios';
 import io from 'socket.io-client';
@@ -11,7 +11,7 @@ const MSG_LIST = 'MSG_LIST';
 const MSG_RECV = 'MSG_RECV';
 const MSG_READ = 'MSG_READ';
 
-const socket = io('ws://47.254.23.123:9093');
+const socket = io('ws://localhost:9093');
 
 const initState = {
   chatmsg:[],
