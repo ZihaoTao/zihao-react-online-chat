@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 19:57:20
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-22 09:38:00
+* @Last Modified time: 2019-06-27 14:06:50
 */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -49,7 +49,6 @@ class Login extends React.Component {
               type='password'
               onChange={v => this.props.handleChange('pwd', v)}
             >Password</InputItem>
-            <WhiteSpace />
           </List>
           <WhiteSpace />
           <Button type='primary' onClick={this.handleLogin}>Login</Button>

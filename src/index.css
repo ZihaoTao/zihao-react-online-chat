@@ -2,8 +2,14 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-20 13:50:51
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-24 01:42:40
+* @Last Modified time: 2019-06-27 14:15:20
 */
+
+#root {
+  max-width: 800px;
+  margin: auto;
+}
+
 .error-msg {
   color: #f50;
   padding: 10px;
@@ -12,6 +18,7 @@
 .am-tab-bar {
   position: fixed;
   bottom: 0;
+  max-width: 800px;
   width: 100%;
 }
 
@@ -66,4 +73,9 @@
   bottom: 0;
   width: 100%;
   z-index:10;
+}
+
+.grid {
+  max-width: 400px;
+  margin: auto;
 }

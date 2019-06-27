@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-20 22:20:35
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-21 00:44:44
+* @Last Modified time: 2019-06-27 14:14:03
 */
 import React from 'react';
 import { Grid, List } from 'antd-mobile';
@@ -25,18 +25,21 @@ class AvatarSelector extends React.Component {
                                         text: v
                                       }));
     const gridHeader = this.state.text ? (<div>
-                                            <span>Picture selected:</span>
-                                            <img style={{width:20}} 
-                                                 src={this.state.icon} 
-                                                 alt="pic"/>
+                                            <p style={{lineHeight: 3}}>Picture selected:
+                                              <img style={{width:20}} 
+                                                   src={this.state.icon} 
+                                                   alt="pic"/>
+                                            </p>
+                                            
                                           </div>) : 
                                           (<div>
-                                            <p>Please select a picture:</p>
+                                            <p style={{lineHeight: 3}}>Please select a picture:</p>
                                           </div>);
     return (
       <div >
         <List renderHeader={()=>gridHeader}></List>
         <Grid 
+          className='grid'
           data={avatarList} 
           columnNum={3}
           // sub-component send data to component
