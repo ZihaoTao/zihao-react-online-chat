@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-20 11:40:04
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-21 18:34:21
+* @Last Modified time: 2019-06-29 10:50:21
 */
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const ERROR_MSG = 'ERROR_MSG';
 const LOAD_DATA = 'LOAD_DATA';
 const LOGOUT = 'LOGOUT';
+const ERASE = 'ERASE';
 
 const initState = {
   redirectTo: '',
@@ -31,6 +32,8 @@ export function user(state = initState, action) {
       return {...state, isAuth: false, msg: action.msg};
     case LOGOUT: 
       return {...initState, redirectTo: '/login'};
+    case ERASE:
+      return {...initState};
     default:
       return state;
   } 
@@ -111,6 +114,9 @@ export function logoutSubmit() {
   return {type: LOGOUT};
 }
 
+export function erasePath() {
+  return {type: ERASE};
+}
 
 function errorMsg(msg) {
   return {type: ERROR_MSG, msg: msg};
@@ -119,4 +125,6 @@ function errorMsg(msg) {
 function authSuccess(data) {
   return {type: AUTH_SUCCESS, payload: data};
 }
+
+
 

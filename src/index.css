@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-20 13:50:51
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-27 14:24:47
+* @Last Modified time: 2019-06-29 11:34:07
 */
 
 #root {
@@ -13,6 +13,10 @@
 .error-msg {
   color: #f50;
   padding: 10px;
+}
+
+.welcome {
+  margin: 20px 20px;
 }
 
 .am-tab-bar {

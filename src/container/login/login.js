@@ -2,7 +2,7 @@
 * @Author: Zihao Tao
 * @Date:   2019-06-19 19:57:20
 * @Last Modified by:   Zihao Tao
-* @Last Modified time: 2019-06-27 14:06:50
+* @Last Modified time: 2019-06-29 11:33:25
 */
 import React from 'react';
 import { connect } from 'react-redux';
@@ -10,12 +10,12 @@ import { Redirect } from 'react-router-dom';
 import { List, InputItem, WingBlank, WhiteSpace, Button } from 'antd-mobile';
 
 import Logo from '../../component/logo/logo';
-import { login } from '../../redux/user.redux';
+import { login, erasePath } from '../../redux/user.redux';
 import formWrapper from '../../component/formwrapper/formwrapper';
 
 @connect(
   state=>state.user,
-  { login }
+  { login, erasePath }
 )
 @formWrapper
 class Login extends React.Component {
@@ -23,6 +23,10 @@ class Login extends React.Component {
     super(props);
     this.register = this.register.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.erasePath();
   }
 
   register() { 
@@ -38,6 +42,11 @@ class Login extends React.Component {
       <div>
         {this.props.redirectTo && this.props.redirectTo !== '/login' ? <Redirect to={this.props.redirectTo} /> : null}
         <Logo></Logo>
+        <pre className='welcome'>
+          Here is the account for test:<br/>
+          &nbsp;&nbsp;&nbsp;username: test<br/>
+          &nbsp;&nbsp;&nbsp;password: test
+        </pre>
         {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}
         <WingBlank>
           <List>
