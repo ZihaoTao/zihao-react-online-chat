@@ -73,7 +73,7 @@ class DashBoard extends React.Component {
           {page.title}
         </NavBar>
         <NavLinkBar data={navList}></NavLinkBar>
-        <div style={{marginTop: 45}}>
+        <div id="dashboard" style={{marginTop: 45}}>
           <QueueAnim  delay={300}>
             <Route key={page.path} path={page.path} component={page.component}></Route>
           </QueueAnim>

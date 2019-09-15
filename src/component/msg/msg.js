@@ -36,7 +36,7 @@ class Msg extends React.Component {
         const unreadNum = v.filter(v=>!v.read && v.to===userid).length;
         const targetId = userid === last.from ? last.to : last.from;
         return (
-          <List key={last._id}>
+          <List key={last._id} style={{marginBottom:'20px'}}>
             <List.Item 
               extra={<Badge text={unreadNum}></Badge>}
               thumb={require(`../img/${this.props.chat.users[targetId].avatar}.png`)}

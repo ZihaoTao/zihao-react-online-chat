@@ -10,6 +10,18 @@
   margin: auto;
 }
 
+
+
+#title {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 50px;
+  color: crimson;
+  font-family: 'Roboto Mono', monospace;
+  font-family: 'Pacifico', cursive;
+}
+
 .error-msg {
   color: #f50;
   padding: 10px;
@@ -17,6 +29,7 @@
 
 .welcome {
   margin: 20px 20px;
+  color: grey;
 }
 
 .am-tab-bar {
@@ -24,6 +37,7 @@
   bottom: 0;
   max-width: 800px;
   width: 100%;
+
 }
 
 .fixed-header .am-navbar {
@@ -49,7 +63,7 @@
   display: none;
 }
 
-#chat-page .char-msg-page {
+#chat-page .chat-msg-page, #dashboard  {
   overflow: scroll;
   position: absolute;
   top: 50px;
@@ -63,6 +77,11 @@
   overflow: -moz-scrollbars-none;
 }
 
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 #chat-page .char-msg-page::-webkit-scrollbar { 
   width: 0 !important 
 }
@@ -74,6 +93,8 @@
 #chat-page .am-grid-text {
   matgin-top: 0;
 }
+
+
 
 .stick-footer {
   position: absolute;

@@ -22,26 +22,27 @@ class UserCard extends React.Component {
   render() {
     return (
       <div>
-        <WingBlank> 
-          <WhiteSpace></WhiteSpace>
-            {this.props.userlist.map(v=>(
-              v.avatar ?
-              <Card 
-                key={v._id} 
-                onClick={()=>this.handleClick(v)}
-              >
-                <Card.Header
-                  title={v.user}
-                  thumb={require(`../img/${v.avatar}.png`)}
-                  extra={<span>{v.title}</span>}
-                ></Card.Header>
-                <Card.Body>
-                  {v.type === 'Employer' ? <div> Company: {v.company} </div> : null}
-                  {v.desc.split('\n').map(d=>(<div key={d}> {d} </div>))}
-                  {v.type === 'Employer' ? <div> Salary: {v.money} </div> : null}
-                </Card.Body>
-              </Card> : null
-            ))}
+        <WingBlank>
+            <WhiteSpace></WhiteSpace>
+              {this.props.userlist.map(v=>(
+                v.avatar ?
+                <Card 
+                  key={v._id} 
+                  onClick={()=>this.handleClick(v)}
+                  style={{margin:'10px'}}
+                >
+                  <Card.Header
+                    title={v.user}
+                    thumb={require(`../img/${v.avatar}.png`)}
+                    extra={<span>{v.title}</span>}
+                  ></Card.Header>
+                  <Card.Body>
+                    {v.type === 'Employer' ? <div> Company: {v.company} </div> : null}
+                    {v.desc.split('\n').map(d=>(<div key={d}> {d} </div>))}
+                    {v.type === 'Employer' ? <div> Salary: {v.money} </div> : null}
+                  </Card.Body>
+                </Card> : null
+              ))}
         </WingBlank>
       </div>);
   }

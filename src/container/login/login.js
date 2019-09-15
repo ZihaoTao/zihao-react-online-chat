@@ -39,9 +39,10 @@ class Login extends React.Component {
 
   render() {
     return(
-      <div>
+      <div style={{background:'white', padding:'20px'}}>
         {this.props.redirectTo && this.props.redirectTo !== '/login' ? <Redirect to={this.props.redirectTo} /> : null}
         <Logo></Logo>
+        <div id="title">Job Chat</div>
         <pre className='welcome'>
           Here is the account for test:<br/>
           &nbsp;&nbsp;&nbsp;username: test<br/>
@@ -49,7 +50,7 @@ class Login extends React.Component {
         </pre>
         {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}
         <WingBlank>
-          <List>
+          <List style={{width:"60%", margin:"20px auto"}}>
             <InputItem 
               onChange={v => this.props.handleChange('user', v)}
             >User Name</InputItem>
@@ -60,9 +61,9 @@ class Login extends React.Component {
             >Password</InputItem>
           </List>
           <WhiteSpace />
-          <Button type='primary' onClick={this.handleLogin}>Login</Button>
+          <Button type='primary' onClick={this.handleLogin} style={{width:"60%", margin:"auto"}}>Login</Button>
           <WhiteSpace />
-          <Button  onClick={this.register}>Register</Button>
+          <Button  onClick={this.register} style={{width:"60%", margin:"auto"}}>Register</Button>
         </WingBlank>
       </div>
     );

@@ -41,7 +41,7 @@ class Register extends React.Component {
   render() {
     const RadioItem = Radio.RadioItem;
     return(
-      <div>
+      <div style={{background:'white', padding:'20px'}}>
       {this.props.redirectTo ? <Redirect to={this.props.redirectTo} /> : null}
         <Logo></Logo>
         {this.props.msg ? <p className='error-msg'>{this.props.msg}</p> : null}

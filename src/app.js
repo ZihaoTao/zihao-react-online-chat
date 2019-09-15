@@ -32,7 +32,7 @@ class App extends React.Component {
 
   render() {
     return this.state.hasError ? <h2>Error !!!</h2> : (
-      <div>
+      <div id="app">
         <AuthRoute></AuthRoute>
         <Switch>
           <Route path='/login' component={Login}></Route>

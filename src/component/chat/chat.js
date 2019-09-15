@@ -85,7 +85,7 @@ class Chat extends React.Component {
         >
           {users[userid].name}
         </NavBar>
-        <div className="char-msg-page" style={{overflow:'scroll'}}>
+        <div className="chat-msg-page">
           {
             chatmsgs.map(v=>{
               const avatar = require(`../img/${users[v.from].avatar}.png`);
