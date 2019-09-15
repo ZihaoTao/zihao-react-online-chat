@@ -30,13 +30,12 @@ class AvatarSelector extends React.Component {
                                                    src={this.state.icon} 
                                                    alt="pic"/>
                                             </p>
-                                            
                                           </div>) : 
                                           (<div>
                                             <p style={{lineHeight: 3}}>Please select a picture:</p>
                                           </div>);
     return (
-      <div >
+      <div style={{margin: '30px'}}>
         <List renderHeader={()=>gridHeader}></List>
         <Grid 
           className='grid'

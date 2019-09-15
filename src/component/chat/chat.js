@@ -26,13 +26,15 @@ class Chat extends React.Component {
   }
 
   componentDidMount() {
+    this.props.getMessageList();
     if(!this.props.chat.chatmsg.length) {
-      this.props.getMessageList();
       this.props.recvMsg();
+      this.scrollToBottom();
     }
-    if(this.listElement) {
-      this.listElement.scrollTop = this.listElement.scrollHeight;
-    }
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   componentWillUnmount() {
@@ -55,8 +57,13 @@ class Chat extends React.Component {
     this.props.sendMsg(from, to, content);
   }
 
+  scrollToBottom() {
+    let view = document.getElementById("view");
+    if(view) view.scrollIntoView(false);
+  }
+
   render() {
-    const emoji = '😀 😄 😆 😂 😊 ☺️ 😜 🤨 😐 😶 😏 😒 🙄 😬 😌 😔 😷 😕 😳 😥 😱 😭 😡 😠 😲 🙏 👋 👏 🙈 🙉 🙉 🐵 🐶 🦊 🐱 🐯 🐷 🐹 🐰 🐻 🐨 🐼'
+    const emoji = '😀 😄 😆 😂 😊 😜 🤨 😐 😶 😏 😒 🙄 😬 😌 😔 😷 😕 😳 😥 😱 😭 😡 😠 😲 🙏 👋 👏 🙈 🙉 🙉 🐵 🐶 🦊 🐱 🐯 🐷 🐹 🐰 🐻 🐨 🐼'
                   .split(' ')
                   .filter(v=>v)
                   .map(v=>({text: v}));
@@ -67,7 +74,6 @@ class Chat extends React.Component {
     }
     const chatid = getChatId(userid, this.props.user._id);
     const chatmsgs = this.props.chat.chatmsg.filter(v => v.chatid === chatid);
-
             
     return (
       <div id='chat-page'>
@@ -79,31 +85,36 @@ class Chat extends React.Component {
         >
           {users[userid].name}
         </NavBar>
-        <div className="char-msg-page" ref={(list) => this.listElement = list}>
+        <div className="char-msg-page" style={{overflow:'scroll'}}>
           {
             chatmsgs.map(v=>{
               const avatar = require(`../img/${users[v.from].avatar}.png`);
               return v.from === userid ?
-                <List key={v._id}>
-                  <List.Item thumb={avatar}>
+                <List key={v._id} style={{width:'60%', margin:'5%'}}>
+                  <List.Item thumb={avatar} multipleLine>
                     {v.content}
                   </List.Item>
                 </List>
                 :
-                <List key={v._id}>
-                  <List.Item className='chat-me' extra={<img src={avatar} alt="pic"/>}>
+                <List key={v._id} style={{width:'60%', margin:'5%', marginLeft:'35%'}}>
+                  <List.Item className='chat-me'  extra={<img src={avatar} alt="pic"/>} multipleLine>
                     {v.content}
                   </List.Item>
                 </List>
             })
           }
+          <div id="view">
+          </div>
         </div>
+
         <div className="stick-footer">
           <List>
             <InputItem
               placeholder='Please Input your Message'
               value={this.state.text}
               onChange={v=>this.setState({text: v})}
+              style={{lineHeight: '1.2'}}
+              clear
               extra={
                 <div>
                 <span
@@ -114,7 +125,7 @@ class Chat extends React.Component {
                   }}
                   role='img'
                   aria-label='Smile'
-                >😀</span>
+                >Emoji</span>
                 <span onClick={() => this.hangleSubmit()}>Send</span>
                 </div>
               }

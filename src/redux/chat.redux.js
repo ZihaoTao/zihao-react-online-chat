@@ -11,7 +11,7 @@ const MSG_LIST = 'MSG_LIST';
 const MSG_RECV = 'MSG_RECV';
 const MSG_READ = 'MSG_READ';
 
-const socket = io('ws://47.254.23.123:9093');
+const socket = io('ws://localhost:9093');
 
 const initState = {
   chatmsg:[],
@@ -22,11 +22,12 @@ const initState = {
 export function chat(state=initState, action) {
   switch(action.type) {
     case MSG_LIST:
-      return {...state, chatmsg: action.payload.msgs, 
+      return {...state, 
+        chatmsg: action.payload.msgs, 
         unread: action.payload.msgs.filter(v=>!v.read && v.to === action.payload.userid).length, 
         users: action.payload.users};
     case MSG_RECV:
-    const n = action.payload.msg.to === action.payload.userid ? 1 : 0;
+      const n = action.payload.msg.to === action.payload.userid ? 1 : 0;
       return {...state, 
         chatmsg: [...state.chatmsg, action.payload.msg], 
         unread: state.unread + n};

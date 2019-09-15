@@ -38,7 +38,6 @@ Router.get('/info', (req, res) => {
 
 Router.get('/getmsgList', (req, res) => {
   const user = req.cookies.userid;
-
   User.find({}, (err, doc) => {
     let users = {};
     doc.forEach(v => {
