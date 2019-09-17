@@ -4,7 +4,16 @@
 * @Last Modified by:   Zihao Tao
 * @Last Modified time: 2019-06-29 11:34:07
 */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
 #root {
+  height: 100%;
   max-width: 800px;
   margin: auto;
   moz-user-select: -moz-none;
@@ -14,6 +23,10 @@
   -webkit-user-select:none;
   -ms-user-select:none;
   user-select:none;
+}
+
+#app {
+  height: 100%;
 }
 
 #title {

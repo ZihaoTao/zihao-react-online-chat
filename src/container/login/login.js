@@ -39,7 +39,7 @@ class Login extends React.Component {
 
   render() {
     return(
-      <div style={{background:'white', padding:'20px', height:'100vw'}}>
+      <div style={{background:'white', padding:'20px', height:'100%'}}>
         {this.props.redirectTo && this.props.redirectTo !== '/login' ? <Redirect to={this.props.redirectTo} /> : null}
         <Logo></Logo>
         <div id="title">Job Chat</div>
