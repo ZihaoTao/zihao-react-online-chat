@@ -54,7 +54,7 @@ class Chat extends React.Component {
     const from = this.props.user._id;
     const to = this.props.match.params.user;
     const content = this.state.text;
-    this.props.sendMsg(from, to, content);
+    if(content.length !== 0)this.props.sendMsg(from, to, content);
   }
 
   scrollToBottom() {

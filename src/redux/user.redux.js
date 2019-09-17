@@ -53,7 +53,6 @@ export function register({user, pwd, repeatpwd, type}) {
     axios.post('/user/register', {user, pwd, type})
         .then(res => {
           if(res.status === 200 && res.data.code === 0) {
-            console.log(res.data.data);
             dispatch(authSuccess(res.data.data));
           } else {
             dispatch(errorMsg(res.data.msg));
@@ -98,7 +97,20 @@ export function update(data) {
   if(path === '/employeeinfo' && (!title || !desc)) {
     return errorMsg('Please complete your profile');
   }
-  
+
+  return dispatch => {
+    axios.post('/user/update', data)
+         .then(res => {
+           if(res.status === 200 && res.data.code === 0) {
+             dispatch(authSuccess(res.data.data));
+           } else {
+             dispatch(errorMsg(res.data.msg));
+           }
+         })
+  }
+}
+
+export function updateInfo(data) {
   return dispatch => {
     axios.post('/user/update', data)
          .then(res => {

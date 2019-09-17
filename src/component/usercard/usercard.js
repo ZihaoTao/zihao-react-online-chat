@@ -9,6 +9,7 @@ import PropType from 'prop-types';
 import { WhiteSpace, WingBlank, Card } from 'antd-mobile';
 import { withRouter } from 'react-router-dom'
 
+const generate = require('string-to-color');
 @withRouter
 class UserCard extends React.Component {
   static PropType = {
@@ -33,7 +34,7 @@ class UserCard extends React.Component {
                 >
                   <Card.Header
                     title={v.user}
-                    thumb={require(`../img/${v.avatar}.png`)}
+                    thumb={<div className="card-thumb" style={{background: generate(v.user)}}>{v.user.charAt(0)}</div>}
                     extra={<span>{v.title}</span>}
                   ></Card.Header>
                   <Card.Body>

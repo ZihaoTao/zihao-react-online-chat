@@ -6,19 +6,25 @@
 */
 import React from 'react';
 import { connect } from 'react-redux';
-import { WhiteSpace, Result, List, Modal } from 'antd-mobile';
+import { WhiteSpace, Result, List, Modal, TextareaItem } from 'antd-mobile';
 import browserCookies from 'browser-cookies';
 import { Redirect } from 'react-router-dom';
 import { logoutSubmit } from '../../redux/user.redux';
+import { updateInfo } from '../../redux/user.redux';
+
 @connect(
   state=>state.user,
-  {logoutSubmit}
+  {logoutSubmit, updateInfo}
 )
 
 class User extends React.Component {
   constructor(props) {
     super(props);
+    this.state={};
+    this.onChange = this.onChange.bind(this);
     this.logout = this.logout.bind(this);
+    this.update = this.update.bind(this);
+    console.log(props);
   }
 
   logout() {
@@ -32,6 +38,22 @@ class User extends React.Component {
       ]);
   }
 
+  update() {
+    const alert = Modal.alert;
+    alert('Update Info', '', [
+        {text: 'Cancel', onPress: () => {console.log('canel')}},
+        {text: 'Ok', onPress: () => {
+          this.props.updateInfo(this.state);
+        }}
+      ]);
+  }
+
+  onChange(key, val) {
+    this.setState({
+      [key]: val
+    });
+  }
+
   render() {
     const props = this.props;
     return props.user ? (
@@ -43,12 +65,18 @@ class User extends React.Component {
         /> 
         <List renderHeader={()=>'Resume'}>
           <List.Item multipleLine>
-            {props.title}
-            {props.desc.split('\n').map(v=>(<List.Item.Brief key={v}>{v}</List.Item.Brief>))}
-            {props.money ? <List.Item.Brief>props.money</List.Item.Brief> : null}
+            <div>Position: <TextareaItem autoHeight defaultValue={props.title} onChange={(v)=>this.onChange('title', v)}></TextareaItem></div>
+            <div>Desc: <TextareaItem autoHeight defaultValue={props.desc} onChange={(v)=>this.onChange('desc', v)}></TextareaItem></div>
+            {this.props.type === 'Employer' ? (<div>Company: <TextareaItem autoHeight defaultValue={props.company} onChange={(v)=>this.onChange('company', v)}></TextareaItem></div>) : null}
+            {this.props.type === 'Employer' ? (<div>Salary: <TextareaItem autoHeight defaultValue={props.money} onChange={(v)=>this.onChange('money', v)}></TextareaItem></div>) : null}
           </List.Item>
         </List>
         <WhiteSpace></WhiteSpace>
+        <List>
+          <List.Item onClick={this.update}>
+            Update Info
+          </List.Item>
+        </List>
         <List>
           <List.Item onClick={this.logout}>
             Log Out
