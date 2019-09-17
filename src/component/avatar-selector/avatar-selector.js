@@ -19,14 +19,14 @@ class AvatarSelector extends React.Component {
     this.state = {};
   }
   render() {
-    const avatarList = 'User,Male,Andorian,Person,Female,Ninja'.split(',')
+    const avatarList = 'User,Male,Andorian,Person,Female,Ninja,1,2,3'.split(',')
                                       .map(v=>({
                                         icon: require(`../img/${v}.png`),
-                                        text: v
+                                        t:v
                                       }));
-    const gridHeader = this.state.text ? (<div>
+    const gridHeader = this.state.t ? (<div>
                                             <p style={{lineHeight: 3}}>Picture selected:
-                                              <img style={{width:20}} 
+                                              <img style={{width:'25px', marginLeft:'10px'}} 
                                                    src={this.state.icon} 
                                                    alt="pic"/>
                                             </p>
@@ -44,7 +44,7 @@ class AvatarSelector extends React.Component {
           // sub-component send data to component
           onClick={ele => {
             this.setState(ele);
-            this.props.selectAvatar(ele.text);
+            this.props.selectAvatar(ele.t);
           }}
         />
       </div>
