@@ -53,7 +53,7 @@ class Login extends React.Component {
           <List style={{width:"60%", margin:"20px auto"}}>
             <InputItem 
               onChange={v => this.props.handleChange('user', v)}
-            >User Name</InputItem>
+            >Username</InputItem>
             <WhiteSpace />
             <InputItem
               type='password'
