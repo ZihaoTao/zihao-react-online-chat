@@ -15,7 +15,7 @@ import DashBoard from './component/dashboard/dashboard';
 import Chat from './component/chat/chat'
 import AuthRoute from './component/auth-route/auth-route';
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

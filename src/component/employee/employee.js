@@ -15,7 +15,7 @@ import { getUserList } from '../../redux/chatuser.redux';
   { getUserList }
 )
 
-class Employee extends React.Component {
+class Employee extends React.PureComponent {
   componentDidMount() {
     this.props.getUserList('Employer');
   }

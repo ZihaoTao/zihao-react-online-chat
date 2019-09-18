@@ -19,7 +19,7 @@ import formWrapper from '../../component/formwrapper/formwrapper';
 )
 
 @formWrapper
-class Register extends React.Component {
+class Register extends React.PureComponent {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
@@ -49,7 +49,7 @@ class Register extends React.Component {
           <List>
             <InputItem
               onChange={v=>this.props.handleChange('user', v)}
-            >User Name</InputItem>
+            >Username</InputItem>
             <WhiteSpace />
             <InputItem
               type='password'

@@ -22,7 +22,7 @@ import { getMessageList, recvMsg } from '../../redux/chat.redux';
   { getMessageList, recvMsg }
 )
 
-class DashBoard extends React.Component {
+class DashBoard extends React.PureComponent {
   componentDidMount() {
     if(!this.props.chat.chatmsg.length) {
       this.props.getMessageList();

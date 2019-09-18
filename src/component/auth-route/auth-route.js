@@ -16,7 +16,7 @@ import { loadData } from '../../redux/user.redux';
   state => state.user,
   {loadData}
 )
-class AuthRoute extends React.Component {
+class AuthRoute extends React.PureComponent {
   componentDidMount() {
     const publicList = ['/login', '/register'];
     const pathname = this.props.location.pathname;

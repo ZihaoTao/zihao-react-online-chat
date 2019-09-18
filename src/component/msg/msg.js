@@ -13,7 +13,7 @@ import { withRouter } from 'react-router-dom'
 @connect(
   state=>state
 )
-class Msg extends React.Component {
+class Msg extends React.PureComponent {
   getLast(arr) {
     return arr[arr.length - 1];
   }

@@ -18,7 +18,7 @@ import formWrapper from '../../component/formwrapper/formwrapper';
   { login, erasePath }
 )
 @formWrapper
-class Login extends React.Component {
+class Login extends React.PureComponent {
   constructor(props) {
     super(props);
     this.register = this.register.bind(this);

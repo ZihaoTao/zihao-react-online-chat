@@ -14,7 +14,7 @@ import { withRouter } from 'react-router-dom'
 @connect(
   state => state.chat
 )
-class NavLinkBar extends React.Component {
+class NavLinkBar extends React.PureComponent {
   static propTypes = {
     data: PropTypes.array.isRequired
   }

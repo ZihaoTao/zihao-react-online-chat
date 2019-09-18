@@ -7,7 +7,7 @@
 import React from 'react';
 //DOC
 export default function formWrapper(Comp) {
-  return class WrapperComp extends React.Component {
+  return class WrapperComp extends React.PureComponent {
     constructor(props) {
       super(props);
       this.state = {};

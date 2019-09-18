@@ -18,7 +18,7 @@ import { update } from '../../redux/user.redux';
   {update}
 )
 
-class EmployeeInfo extends React.Component {
+class EmployeeInfo extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {

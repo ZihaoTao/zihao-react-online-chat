@@ -11,7 +11,7 @@ import { withRouter } from 'react-router-dom'
 
 const generate = require('string-to-color');
 @withRouter
-class UserCard extends React.Component {
+class UserCard extends React.PureComponent {
   static PropType = {
     userlist: PropType.array.isRequired
   }

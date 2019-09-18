@@ -17,14 +17,13 @@ import { updateInfo } from '../../redux/user.redux';
   {logoutSubmit, updateInfo}
 )
 
-class User extends React.Component {
+class User extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state={};
     this.onChange = this.onChange.bind(this);
     this.logout = this.logout.bind(this);
     this.update = this.update.bind(this);
-    console.log(props);
   }
 
   logout() {
